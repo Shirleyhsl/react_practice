@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import AddCmt from './AddCmt.jsx';
 import ShowCmt from './ShowCmt.jsx'
+
+import '../../css/comments.css'
+
 class App extends Component {
      constructor(props) {
         super(props);
