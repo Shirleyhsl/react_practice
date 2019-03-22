@@ -1,0 +1,33 @@
+.color-red{
+    color:red;
+}
+.cmt-title{
+    background-color:#ccc;
+    padding: 0 0 0 20px;
+    height: 100px;
+    line-height: 100px
+    
+}
+
+.comment-box{
+    display: flex;
+
+}
+.wirteCmt{
+    flex:2;
+    padding:20px
+}
+.showCmt{
+    flex:3;
+    padding:20px
+}
+ul{
+    padding: 0
+}
+li{
+    border: 1px solid #ccc;
+    padding: 10px 30px;
+    box-shadow: 0px 0px 1px #ccc;
+    margin-bottom: 10px;
+    list-style:none;
+}
