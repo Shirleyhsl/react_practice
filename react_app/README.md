@@ -86,6 +86,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * 载包:web版的router： `cnpm i --save react-router-dom`
 * 设置路由
     ```js
+    //index.js
+    import {BrowserRouter} from 'react-router-dom';
+    //有路由结构需要这么写
+    ReactDOM.render(<BrowserRouter><App/></BrowserRouter>, document.getElementById('root'));
+    //组件代码
     import {NavLink,Switch,Route,Redirect} from 'react-router-dom'
     //路由链接
     <NavLink to='/about' className="activeClass">About</NavLink>
@@ -148,3 +153,7 @@ showDetail(id){
  const {id}=this.props.match.params;
 ```
 
+## 最流行的React-UI库
+1. [material-ui(国外)](https://material-ui.com/)
+2. [ant-design(蚂蚁金服)](https://ant.design/)
+* 使用参照官方文档，很详细
