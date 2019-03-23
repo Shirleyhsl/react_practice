@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {NavLink,Switch,Route,Redirect} from 'react-router-dom'
+import {Switch,Route,Redirect} from 'react-router-dom'
 import  'bootstrap/dist/css/bootstrap.min.css'
 import About from '../../views/router_1/about.jsx'
 import Home from '../../views/router_1/home.jsx'
+import MyNavLink from '../../components/router_1/my-nav-link.jsx'
 
 class App extends Component {
     constructor(props) {
@@ -16,8 +17,8 @@ class App extends Component {
             <div className="app">
                 <h1>React Router demo</h1>
                 <div>
-                    <NavLink to='/about' className="activeClass">About</NavLink>
-                    <NavLink to='/home'>Home</NavLink>
+                    <MyNavLink to='/about'>About</MyNavLink>
+                    <MyNavLink to='/home'>Home</MyNavLink>
                 </div>
                 <div>
                     <Switch>

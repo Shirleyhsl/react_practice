@@ -82,7 +82,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 ## 前台路由
-### 安装
+### 单层路由
 * 载包:web版的router： `cnpm i --save react-router-dom`
 * 设置路由
     ```js
@@ -97,6 +97,54 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
         <Route path='/home' component={Home} />
         <Redirect to="/about" />
     </Switch>
-    //
     ```
-* 
+### 嵌套路由
+* 和单层路由类似,在home组件中写相同的路由代码
+```js
+ <ul class="nav nav-tabs">
+    <li>
+        <MyNavLink to="/home/news">News</MyNavLink>
+    </li>
+    <li>
+        <MyNavLink to="/home/message">Messages</MyNavLink>
+    </li>
+</ul>
+<div>
+    <Switch>
+        <Route path="/home/news" component={News}/>
+        <Route path="/home/message" component={Message}/>
+        <Redirect to="/home/news" />
+    </Switch>
+</div>
+```
+### 向路由组件传递数据
+* 父组件中的定义a链接，在Route中用占位符表示动态的参数
+* 在子组件中就可以通过`this.props.match.params.***`获取url上的占位符值
+```js
+//父组件
+//方式二的函数
+showDetail(id){
+    this.props.history.push('/home/message/messagedetail/' + id);
+}
+
+ <div>
+    我是Message组件
+        <ul>
+        {
+            this.state.messages.map((item,index)=>(
+                <li key={index}>
+                    //方式一：使用NavLink
+                    <NavLink to={'/home/message/messagedetail/'+item.id}>{item.title}</NavLink>
+                    &nbsp;&nbsp;&nbsp;
+                    //方式二：使用button触发函数
+                    <button onClick={(index)=>this.showDetail}>查看</button>
+                </li>
+            ))
+        } 
+        </ul>
+        <Route path='/home/message/messagedetail/:id' component={MessageDetail}/>
+</div>
+//子组件
+ const {id}=this.props.match.params;
+```
+
