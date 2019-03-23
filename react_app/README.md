@@ -157,3 +157,19 @@ showDetail(id){
 1. [material-ui(国外)](https://material-ui.com/)
 2. [ant-design(蚂蚁金服)](https://ant.design/)
 * 使用参照官方文档，很详细
+
+## Redux
+* [官方文档](https://www.redux.org.cn/)
+* 不是react插件，其它框架也可以用，react用的比较多
+* 是什么？
+    * redux是一个独立专门用于做状态管理的JS库，管理react应用中多个组件共享的状态
+* 谷歌插件管理redux的数据
+    * 谷歌安装 `redux-devtools` 插件
+    * 项目中安装`cnpm i --save redux-devtools-extension`,`cnpm i --save redux-thunk`
+    * 编码
+    ```js
+    import {createStore, applyMiddleware} from 'redux';
+    import thunk from 'redux-thunk'
+    import {composeWithDevTools} from 'redux-devtools-extension'
+    const store = createStore(counter, composeWithDevTools(applyMiddleware(thunk)));
+    ```
